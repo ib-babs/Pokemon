@@ -1,8 +1,12 @@
+using Pokemon.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+//builder.Services.AddDbContext<PokemonContext>(options => options.UseSqlServer(connectionString));
+builder.Services.AddSqlServer<PokemonDbContext>(connectionString, sql => sql.EnableRetryOnFailure());
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

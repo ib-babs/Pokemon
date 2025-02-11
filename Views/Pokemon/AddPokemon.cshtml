@@ -1,0 +1,13 @@
+﻿@model PokemonModel
+@{
+}
+
+<form method="post" enctype="multipart/form-data" asp-action="AddPokemon" asp-controller="Pokemon">
+    <div asp-validation-summary="All"></div> 
+    <input type="text" asp-for="Name" placeholder="Name"/>
+    <input type="text" asp-for="Power" placeholder="Power"/>
+    <input type="text" asp-for="Owner" placeholder="Owner"/>
+    <input type="text" asp-for="Color" placeholder="Color"/>
+    <input type="file" name="image"/>
+    <button type="submit">Add Pokemon</button>
+</form>
